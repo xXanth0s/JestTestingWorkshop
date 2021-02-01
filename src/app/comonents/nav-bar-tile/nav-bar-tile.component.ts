@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NavBarTile } from '../../types/nav-bar-tile.type';
 
 @Component({
@@ -11,7 +11,6 @@ export class NavBarTileComponent {
     @Input()
     public tileData: NavBarTile;
 
-    constructor() {
-    }
-
+    @Output()
+    public tileClicked: EventEmitter<NavBarTile>;
 }

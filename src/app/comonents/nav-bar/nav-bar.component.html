@@ -1,1 +1,3 @@
-<p>nav-bar works!</p>
+<app-nav-bar-tile (tileClicked)="setRouteActive($event)"
+                  *ngFor="let navItem of navItems"
+                  [tileData]="navItem"></app-nav-bar-tile>

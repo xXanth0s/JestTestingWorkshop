@@ -1,0 +1,13 @@
+<form [formGroup]="form">
+    <div class="form-group">
+        <label for="emailInput">Email address</label>
+        <input aria-describedby="emailHelp" class="form-control" formControlName="email" id="emailInput"
+               placeholder="Enter email" type="email">
+        <small class="form-text text-muted" id="emailHelp">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+        <label for="nameInput">Name</label>
+        <input class="form-control" formControlName="name" id="nameInput" placeholder="Name" type="text">
+    </div>
+    <button (click)="submitForm" [disabled]="form.invalid" class="btn btn-primary" type="submit">Submit</button>
+</form>

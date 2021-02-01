@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './comonents/nav-bar/nav-bar.component';
 import { NavBarTileComponent } from './comonents/nav-bar-tile/nav-bar-tile.component';
+import { StartPageModule } from './modules/start-page/start-page.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NavBarTileComponent } from './comonents/nav-bar-tile/nav-bar-tile.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StartPageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

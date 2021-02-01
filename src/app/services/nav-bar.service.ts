@@ -1,20 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { catchError, map, mapTo } from 'rxjs/operators';
+import { NavBarTile } from '../types/nav-bar-tile.type';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class NavBarService {
 
-  constructor(private readonly http: HttpClient) {
-  }
+    private readonly baseUrl = 'navbar';
 
-  public getNavBarItems(): Observable<string[]> {
-    return this.http.get<string[]>('').pipe(
-        map(navItems => navItems || [])
-    );
-  }
+    constructor(private readonly http: HttpClient) {
+    }
+
+    public getNavBarItems(): Observable<string[]> {
+        return this.http.get<string[]>(this.baseUrl).pipe(
+            map(navItems => navItems || [])
+        );
+    }
+
+    public setNavBarItemActive(itemTitle: NavBarTile): Observable<boolean> {
+        return this.http.post<void>(`${this.baseUrl}/setActive`, { itemTitle }).pipe(
+            mapTo(true),
+            catchError(() => of(false)),
+        );
+    }
 
 }
