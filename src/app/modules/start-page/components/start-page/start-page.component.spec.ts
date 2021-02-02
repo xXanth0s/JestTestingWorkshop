@@ -3,23 +3,25 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { StartPageComponent } from './start-page.component';
 
 xdescribe('StartPageComponent', () => {
-  let component: StartPageComponent;
-  let fixture: ComponentFixture<StartPageComponent>;
+    let component: StartPageComponent;
+    let fixture: ComponentFixture<StartPageComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ StartPageComponent ]
-    })
-        .compileComponents();
-  }));
+    beforeEach(async(() => {
+        TestBed.configureTestingModule({
+            declarations: [
+                StartPageComponent
+            ]
+        })
+            .compileComponents();
+    }));
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(StartPageComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(StartPageComponent);
+        component = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+        expect(component).toBeTruthy();
+    });
 });
