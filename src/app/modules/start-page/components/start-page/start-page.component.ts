@@ -12,7 +12,7 @@ export class StartPageComponent {
     constructor(private readonly userService: UserService) {
     }
 
-    setUser(user: User) {
+    public setUser(user: User): void {
         this.userService.setUser(user);
     }
 }
