@@ -12,6 +12,6 @@ function mapStringToNavBarTile(itemTitle: string): NavBarTile {
     };
 }
 
-function isStartPage(itemTitle: string): boolean {
+export function isStartPage(itemTitle: string): boolean {
     return itemTitle === START_PAGE;
 }

@@ -13,4 +13,8 @@ export class NavBarTileComponent {
 
     @Output()
     public tileClicked: EventEmitter<NavBarTile>;
+
+    public onClicked() {
+        this.tileClicked.emit(this.tileData);
+    }
 }

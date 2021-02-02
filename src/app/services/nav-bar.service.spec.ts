@@ -3,14 +3,14 @@ import { TestBed } from '@angular/core/testing';
 import { NavBarService } from './nav-bar.service';
 
 xdescribe('NavBarService', () => {
-  let service: NavBarService;
+    let service: NavBarService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(NavBarService);
-  });
+    beforeEach(() => {
+        TestBed.configureTestingModule({});
+        service = TestBed.inject(NavBarService);
+    });
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+    it('should be created', () => {
+        expect(service).toBeTruthy();
+    });
 });
