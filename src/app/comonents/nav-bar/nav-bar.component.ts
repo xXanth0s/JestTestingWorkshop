@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavBarService } from '../../services/nav-bar.service';
 import { NavBarTile } from '../../types/nav-bar-tile.type';
-import { filter, first, map } from 'rxjs/operators';
+import { filter, first, map, tap } from 'rxjs/operators';
 import { getNavBarItemsFromString } from '../../utils/nav-bar.utils';
 import { Router } from '@angular/router';
 
@@ -20,6 +20,7 @@ export class NavBarComponent implements OnInit {
 
     ngOnInit(): void {
         this.navBarService.getNavBarItems().pipe(
+            tap(data => console.log(data)),
             first(),
             map(getNavBarItemsFromString)
         ).subscribe(navItems => this.navItems = navItems);

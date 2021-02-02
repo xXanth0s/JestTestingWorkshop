@@ -11,5 +11,4 @@ export class UserService {
     public setUser(user: User) {
         this.user = user;
     }
-
 }

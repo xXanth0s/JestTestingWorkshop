@@ -12,7 +12,7 @@ export class NavBarTileComponent {
     public tileData: NavBarTile;
 
     @Output()
-    public tileClicked: EventEmitter<NavBarTile>;
+    public tileClicked = new EventEmitter<NavBarTile>();
 
     public onClicked() {
         this.tileClicked.emit(this.tileData);
