@@ -26,5 +26,4 @@ export class NavBarService {
             catchError(() => of(false)),
         );
     }
-
 }

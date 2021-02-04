@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavBarService } from '../../services/nav-bar.service';
 import { NavBarTile } from '../../types/nav-bar-tile.type';
-import { filter, first, map, tap } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 import { getNavBarItemsFromString } from '../../utils/nav-bar.utils';
 import { Router } from '@angular/router';
 
@@ -20,14 +20,13 @@ export class NavBarComponent implements OnInit {
 
     ngOnInit(): void {
         this.navBarService.getNavBarItems().pipe(
-            tap(data => console.log(data)),
-            first(),
-            map(getNavBarItemsFromString)
+            map(data => getNavBarItemsFromString(data))
         ).subscribe(navItems => this.navItems = navItems);
     }
 
     public setRouteActive(navBarItem: NavBarTile): void {
-        if (navBarItem.isActive) {
+        console.log(navBarItem);
+        if (!navBarItem.isActive) {
             this.navBarService.setNavBarItemActive(navBarItem).pipe(
                 filter(Boolean)
             ).subscribe(async () => {
@@ -38,7 +37,7 @@ export class NavBarComponent implements OnInit {
     }
 
     private setNavBarItemActive(navBarItem: NavBarTile): void {
+        console.log(this.navItems);
         this.navItems.forEach(item => item.isActive = item.title === navBarItem.title);
     }
-
 }

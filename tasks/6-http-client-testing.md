@@ -9,7 +9,7 @@
 Example:
 
 ```typescript
-  it('should return an Observable<User[]>', () => {
+  it('should return an Observable<User[]>', done => {
     const dummyUsers = [
         { login: 'John' },
         { login: 'Doe' }
@@ -18,6 +18,7 @@ Example:
     service.getUsers().subscribe(users => {
         expect(users.length).toBe(2);
         expect(users).toEqual(dummyUsers);
+        done();
     });
 
     const req = httpMock.expectOne(`${service.API_URL}/users`);
